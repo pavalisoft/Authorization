@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Venkataswamy Pavali</Authors>
+    <Company>https://www.pavalisoft.com</Company>
+    <Description>Pavalisoft.Authorization is an open source .NET Standard Authorization Framework written in C#, which simplifies .NET Core Authorization API with json configuration</Description>
+    <Copyright>Copyright (c) 2019 Pavalisoft</Copyright>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://www.nuget.org/packages/Pavalisoft.Authorization/</PackageProjectUrl>
+    <PackageIconUrl>https://secure.gravatar.com/avatar/7967778615733d0a09563016e438f8f5?s=512&amp;r=g&amp;d=retro</PackageIconUrl>
+    <RepositoryUrl>https://github.com/pavalisoft/Authorization</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>authorization</PackageTags>
+    <PackageReleaseNotes>Pavalisoft.Authorization is an open source .NET Standard Authorization Framework written in C#, which simplifies .NET Core Authorization API with json configuration</PackageReleaseNotes>
+    <NeutralLanguage>en</NeutralLanguage>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\..\Pavalisoft.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>Pavalisoft.Authorization.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>Pavalisoft.Authorization.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+  </ItemGroup>
+
+</Project>

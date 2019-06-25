@@ -1,0 +1,577 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pavalisoft.Authorization</name>
+    </assembly>
+    <members>
+        <member name="T:Pavalisoft.Authorization.AuthorizationSettings">
+            <summary>
+            {
+                "Authorization" : {
+                    "Policies" : [],
+                    "Areas" : [
+                        {
+                            "Name" : "Default",
+                            "Roles" : "",
+                            "Policy" : "",
+                            "Controllers" : [
+                                {
+                                    "Name" : "Home",
+                                    "Roles" : "",
+                                    "Policy" : "",
+                                    "Actions" : [
+                                        {
+                                            "Name" : "Index",
+                                            "Roles" : "",
+                                            "Policy" : ""
+                                        },
+                                        {
+                                            "Name" : "About",
+                                            "Roles" : "",
+                                            "Policy" : ""
+                                        },
+                                        {
+                                            "Name" : "Contact",
+                                            "Roles" : "",
+                                            "Policy" : ""
+                                        },
+                                        {
+                                            "Name" : "Error",
+                                            "Roles" : "",
+                                            "Policy" : ""
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+            </summary>
+        </member>
+        <member name="T:Pavalisoft.Authorization.DenyAuthorizationRequirement">
+            <summary>
+            Implements an <see cref="T:Microsoft.AspNetCore.Authorization.IAuthorizationHandler" /> and <see cref="T:Microsoft.AspNetCore.Authorization.IAuthorizationRequirement" />
+            which requires at least one role claim whose value must be any of the allowed roles.
+            </summary>
+        </member>
+        <member name="M:Pavalisoft.Authorization.DenyAuthorizationRequirement.HandleRequirementAsync(Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext,Pavalisoft.Authorization.DenyAuthorizationRequirement)">
+            <summary>
+            Makes a decision if authorization is allowed based on a specific requirement.
+            </summary>
+            <param name="context">The authorization context.</param>
+            <param name="requirement">The requirement to evaluate.</param>
+        </member>
+        <member name="M:Pavalisoft.Authorization.Interfaces.IAuthorizationDataProvider.GetAuthorizationSettings">
+            <summary>
+            Provides Authorization Settings
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pavalisoft.Authorization.Interfaces.IAuthorizationDataProvider.GetAuthorizationPolicies">
+            <summary>
+            Provides the Authorization Policies to be configured for application
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pavalisoft.Authorization.Interfaces.IAuthorizationDataProvider.GetAuthorizeData(Microsoft.AspNetCore.Mvc.Controllers.ControllerActionDescriptor)">
+            <summary>
+            Provides the Area, Controller and Actionwise Authorization Data
+            </summary>
+            <param name="descriptor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pavalisoft.Authorization.Interfaces.IAuthorizer.OnAuthorizationAsync(Microsoft.AspNetCore.Authorization.AuthorizationPolicy,Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext)">
+            <summary>
+            Authoirizes the <see cref="T:Microsoft.AspNetCore.Mvc.Controllers.ControllerActionDescriptor"/> against the <see cref="T:Microsoft.AspNetCore.Authorization.AuthorizationPolicy"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Ipf.Core.Security.Authorization.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.AcceptHeaderParser_ParseAcceptHeader_InvalidValues">
+            <summary>
+              Looks up a localized string similar to &quot;Invalid values &apos;{0}&apos;.&quot;.
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ActionDescriptorMustBeBasedOnControllerAction">
+            <summary>
+              Looks up a localized string similar to The action descriptor must be of type &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ActionExecutor_UnexpectedTaskInstance">
+            <summary>
+              Looks up a localized string similar to The method &apos;{0}&apos; on type &apos;{1}&apos; returned a Task instance even though it is not an asynchronous method..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ActionExecutor_WrappedTaskInstance">
+            <summary>
+              Looks up a localized string similar to The method &apos;{0}&apos; on type &apos;{1}&apos; returned an instance of &apos;{2}&apos;. Make sure to call Unwrap on the returned value to avoid unobserved faulted Task..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ActionInvokerFactory_CouldNotCreateInvoker">
+            <summary>
+              Looks up a localized string similar to An action invoker could not be created for action &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ActionResult_ActionReturnValueCannotBeNull">
+            <summary>
+              Looks up a localized string similar to Cannot return null from an action method with a return type of &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ApiExplorer_UnsupportedAction">
+            <summary>
+              Looks up a localized string similar to The action &apos;{0}&apos; has ApiExplorer enabled, but is using conventional routing. Only actions which use attribute routing support ApiExplorer..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.Argument_InvalidOffsetLength">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; and &apos;{1}&apos; are out of bounds for the string..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ArgumentCannotBeNullOrEmpty">
+            <summary>
+              Looks up a localized string similar to Value cannot be null or empty..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.AsyncActionFilter_InvalidShortCircuit">
+            <summary>
+              Looks up a localized string similar to If an {0} provides a result value by setting the {1} property of {2} to a non-null value, then it cannot call the next filter by invoking {3}..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.AsyncResourceFilter_InvalidShortCircuit">
+            <summary>
+              Looks up a localized string similar to If an {0} provides a result value by setting the {1} property of {2} to a non-null value, then it cannot call the next filter by invoking {3}..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.AsyncResultFilter_InvalidShortCircuit">
+            <summary>
+              Looks up a localized string similar to If an {0} cancels execution by setting the {1} property of {2} to &apos;true&apos;, then it cannot call the next filter by invoking {3}..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.AttributeRoute_AggregateErrorMessage">
+            <summary>
+              Looks up a localized string similar to The following errors occurred with attribute routing information:{0}{0}{1}.
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.AttributeRoute_AggregateErrorMessage_ErrorNumber">
+            <summary>
+              Looks up a localized string similar to Error {0}:{1}{2}.
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.AttributeRoute_CannotContainParameter">
+            <summary>
+              Looks up a localized string similar to The attribute route &apos;{0}&apos; cannot contain a parameter named &apos;{{{1}}}&apos;. Use &apos;[{1}]&apos; in the route template to insert the value &apos;{2}&apos;..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.AttributeRoute_DuplicateNames">
+            <summary>
+              Looks up a localized string similar to Attribute routes with the same name &apos;{0}&apos; must have the same template:{1}{2}.
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.AttributeRoute_DuplicateNames_Item">
+            <summary>
+              Looks up a localized string similar to Action: &apos;{0}&apos; - Template: &apos;{1}&apos;.
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.AttributeRoute_IndividualErrorMessage">
+            <summary>
+              Looks up a localized string similar to For action: &apos;{0}&apos;{1}Error: {2}.
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.AttributeRoute_MixedAttributeAndConventionallyRoutedActions_ForMethod">
+            <summary>
+              Looks up a localized string similar to A method &apos;{0}&apos; must not define attribute routed actions and non attribute routed actions at the same time:{1}{2}{1}{1}Use &apos;AcceptVerbsAttribute&apos; to create a single route that allows multiple HTTP verbs and defines a route, or set a route template in all attributes that constrain HTTP verbs..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.AttributeRoute_MixedAttributeAndConventionallyRoutedActions_ForMethod_Item">
+            <summary>
+              Looks up a localized string similar to Action: &apos;{0}&apos; - Route Template: &apos;{1}&apos; - HTTP Verbs: &apos;{2}&apos;.
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.AttributeRoute_NullTemplateRepresentation">
+            <summary>
+              Looks up a localized string similar to (none).
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.AttributeRoute_TokenReplacement_EmptyTokenNotAllowed">
+            <summary>
+              Looks up a localized string similar to An empty replacement token (&apos;[]&apos;) is not allowed..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.AttributeRoute_TokenReplacement_ImbalancedSquareBrackets">
+            <summary>
+              Looks up a localized string similar to Token delimiters (&apos;[&apos;, &apos;]&apos;) are imbalanced..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.AttributeRoute_TokenReplacement_InvalidSyntax">
+            <summary>
+              Looks up a localized string similar to The route template &apos;{0}&apos; has invalid syntax. {1}.
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.AttributeRoute_TokenReplacement_ReplacementValueNotFound">
+            <summary>
+              Looks up a localized string similar to While processing template &apos;{0}&apos;, a replacement value for the token &apos;{1}&apos; could not be found. Available tokens: &apos;{2}&apos;. To use a &apos;[&apos; or &apos;]&apos; as a literal string in a route or within a constraint, use &apos;[[&apos; or &apos;]]&apos; instead..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.AttributeRoute_TokenReplacement_UnclosedToken">
+            <summary>
+              Looks up a localized string similar to A replacement token is not closed..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.AttributeRoute_TokenReplacement_UnescapedBraceInToken">
+            <summary>
+              Looks up a localized string similar to An unescaped &apos;[&apos; token is not allowed inside of a replacement token. Use &apos;[[&apos; to escape..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.AuthorizeFilter_AuthorizationPolicyCannotBeCreated">
+            <summary>
+              Looks up a localized string similar to An {0} cannot be created without a valid instance of {1}..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.BinderType_MustBeIModelBinder">
+            <summary>
+              Looks up a localized string similar to The type &apos;{0}&apos; must implement &apos;{1}&apos; to be used as a model binder..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.BindingSource_CannotBeComposite">
+            <summary>
+              Looks up a localized string similar to The provided binding source &apos;{0}&apos; is a composite. &apos;{1}&apos; requires that the source must represent a single type of input..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.BindingSource_CannotBeGreedy">
+            <summary>
+              Looks up a localized string similar to The provided binding source &apos;{0}&apos; is a greedy data source. &apos;{1}&apos; does not support greedy data sources..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.CacheProfileNotFound">
+            <summary>
+              Looks up a localized string similar to The &apos;{0}&apos; cache profile is not defined..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.CandidateResolver_DifferentCasedReference">
+            <summary>
+              Looks up a localized string similar to A duplicate entry for library reference {0} was found. Please check that all package references in all projects use the same casing for the same package references..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.Common_PropertyNotFound">
+            <summary>
+              Looks up a localized string similar to The property {0}.{1} could not be found..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ComplexTypeModelBinder_NoParameterlessConstructor_ForProperty">
+            <summary>
+              Looks up a localized string similar to Could not create an instance of type &apos;{0}&apos;. Model bound complex types must not be abstract or value types and must have a parameterless constructor. Alternatively, set the &apos;{1}&apos; property to a non-null value in the &apos;{2}&apos; constructor..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ComplexTypeModelBinder_NoParameterlessConstructor_TopLevelObject">
+            <summary>
+              Looks up a localized string similar to Could not create an instance of type &apos;{0}&apos;. Model bound complex types must not be abstract or value types and must have a parameterless constructor..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.CouldNotCreateIModelBinder">
+            <summary>
+              Looks up a localized string similar to Could not create a model binder for model object of type &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.DefaultActionSelector_AmbiguousActions">
+            <summary>
+              Looks up a localized string similar to Multiple actions matched. The following actions matched route data and had all constraints satisfied:{0}{0}{1}.
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.FileResult_InvalidPath">
+            <summary>
+              Looks up a localized string similar to Could not find file: {0}.
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.FileResult_PathNotRooted">
+            <summary>
+              Looks up a localized string similar to Path &apos;{0}&apos; was not rooted..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.FilterFactoryAttribute_TypeMustImplementIFilter">
+            <summary>
+              Looks up a localized string similar to The type provided to &apos;{0}&apos; must implement &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.Format_NotValid">
+            <summary>
+              Looks up a localized string similar to The format provided is invalid &apos;{0}&apos;. A format must be a non-empty file-extension, optionally prefixed with a &apos;.&apos; character..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.FormatFormatterMappings_GetMediaTypeMappingForFormat_InvalidFormat">
+            <summary>
+              Looks up a localized string similar to The argument &apos;{0}&apos; is invalid. Empty or null formats are not supported..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.Formatter_NoMediaTypes">
+            <summary>
+              Looks up a localized string similar to No media types found in &apos;{0}.{1}&apos;. Add at least one media type to the list of supported media types..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.FormatterMappings_NotValidMediaType">
+            <summary>
+              Looks up a localized string similar to The media type &quot;{0}&quot; is not valid. MediaTypes containing wildcards (*) are not allowed in formatter mappings..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.FormCollectionModelBinder_CannotBindToFormCollection">
+            <summary>
+              Looks up a localized string similar to The &apos;{0}&apos; cannot bind to a model of type &apos;{1}&apos;. Change the model type to &apos;{2}&apos; instead..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.HtmlGeneration_NonPropertyValueMustBeNumber">
+            <summary>
+              Looks up a localized string similar to The field must be a number..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.HtmlGeneration_ValueIsInvalid">
+            <summary>
+              Looks up a localized string similar to The value &apos;{0}&apos; is invalid..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.HtmlGeneration_ValueMustBeNumber">
+            <summary>
+              Looks up a localized string similar to The field {0} must be a number..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.InputFormatterNoEncoding">
+            <summary>
+              Looks up a localized string similar to No encoding found for input formatter &apos;{0}&apos;. There must be at least one supported encoding registered in order for the formatter to read content..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.InputFormattersAreRequired">
+            <summary>
+              Looks up a localized string similar to &apos;{0}.{1}&apos; must not be empty. At least one &apos;{2}&apos; is required to bind from the body..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.Invalid_IncludePropertyExpression">
+            <summary>
+              Looks up a localized string similar to The passed expression of expression node type &apos;{0}&apos; is invalid. Only simple member access expressions for model properties are supported..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.JQueryFormValueProviderFactory_MissingClosingBracket">
+            <summary>
+              Looks up a localized string similar to The key &apos;{0}&apos; is invalid JQuery syntax because it is missing a closing bracket..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.KeyValuePair_BothKeyAndValueMustBePresent">
+            <summary>
+              Looks up a localized string similar to A value is required..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.MatchAllContentTypeIsNotAllowed">
+            <summary>
+              Looks up a localized string similar to The argument &apos;{0}&apos; is invalid. Media types which match all types or match all subtypes are not supported..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.MiddewareFilter_ConfigureMethodOverload">
+            <summary>
+              Looks up a localized string similar to Multiple overloads of method &apos;{0}&apos; are not supported..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.MiddewareFilter_NoConfigureMethod">
+            <summary>
+              Looks up a localized string similar to A public method named &apos;{0}&apos; could not be found in the &apos;{1}&apos; type..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.MiddlewareFilter_InvalidConfigureReturnType">
+            <summary>
+              Looks up a localized string similar to The &apos;{0}&apos; method in the type &apos;{1}&apos; must have a return type of &apos;{2}&apos;..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.MiddlewareFilter_ServiceResolutionFail">
+            <summary>
+              Looks up a localized string similar to Could not resolve a service of type &apos;{0}&apos; for the parameter &apos;{1}&apos; of method &apos;{2}&apos; on type &apos;{3}&apos;..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.MiddlewareFilterBuilder_NoMiddlewareFeature">
+            <summary>
+              Looks up a localized string similar to Could not find &apos;{0}&apos; in the feature list..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.MiddlewareFilterBuilder_NullApplicationBuilder">
+            <summary>
+              Looks up a localized string similar to The &apos;{0}&apos; property cannot be null..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.MiddlewareFilterConfigurationProvider_CreateConfigureDelegate_CannotCreateType">
+            <summary>
+              Looks up a localized string similar to Unable to create an instance of type &apos;{0}&apos;. The type specified in {1} must not be abstract and must have a parameterless constructor..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ModelBinderProvidersAreRequired">
+            <summary>
+              Looks up a localized string similar to &apos;{0}.{1}&apos; must not be empty. At least one &apos;{2}&apos; is required to model bind..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ModelBinderUtil_ModelCannotBeNull">
+            <summary>
+              Looks up a localized string similar to The binding context has a null Model, but this binder requires a non-null model of type &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ModelBinderUtil_ModelInstanceIsWrong">
+            <summary>
+              Looks up a localized string similar to The binding context has a Model of type &apos;{0}&apos;, but this binder can only operate on models of type &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ModelBinderUtil_ModelMetadataCannotBeNull">
+            <summary>
+              Looks up a localized string similar to The binding context cannot have a null ModelMetadata..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ModelBinding_MissingBindRequiredMember">
+            <summary>
+              Looks up a localized string similar to A value for the &apos;{0}&apos; property was not provided..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ModelBinding_MissingRequestBodyRequiredMember">
+            <summary>
+              Looks up a localized string similar to A non-empty request body is required..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ModelBinding_NullValueNotValid">
+            <summary>
+              Looks up a localized string similar to The value &apos;{0}&apos; is invalid..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ModelState_AttemptedValueIsInvalid">
+            <summary>
+              Looks up a localized string similar to The value &apos;{0}&apos; is not valid for {1}..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ModelState_NonPropertyAttemptedValueIsInvalid">
+            <summary>
+              Looks up a localized string similar to The value &apos;{0}&apos; is not valid..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ModelState_NonPropertyUnknownValueIsInvalid">
+            <summary>
+              Looks up a localized string similar to The supplied value is invalid..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ModelState_UnknownValueIsInvalid">
+            <summary>
+              Looks up a localized string similar to The supplied value is invalid for {0}..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ModelType_WrongType">
+            <summary>
+              Looks up a localized string similar to The model&apos;s runtime type &apos;{0}&apos; is not assignable to the type &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.NoRoutesMatched">
+            <summary>
+              Looks up a localized string similar to No route matches the supplied values..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.NoRoutesMatchedForPage">
+            <summary>
+              Looks up a localized string similar to No page named &apos;{0}&apos; matches the supplied values..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ObjectResult_MatchAllContentType">
+            <summary>
+              Looks up a localized string similar to The content-type &apos;{0}&apos; added in the &apos;{1}&apos; property is invalid. Media types which match all types or match all subtypes are not supported..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.OutputFormatterNoMediaType">
+            <summary>
+              Looks up a localized string similar to No supported media type registered for output formatter &apos;{0}&apos;. There must be at least one supported media type registered in order for the output formatter to write content..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.OutputFormattersAreRequired">
+            <summary>
+              Looks up a localized string similar to &apos;{0}.{1}&apos; must not be empty. At least one &apos;{2}&apos; is required to format a response..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.PropertyOfTypeCannotBeNull">
+            <summary>
+              Looks up a localized string similar to The &apos;{0}&apos; property of &apos;{1}&apos; must not be null..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ResponseCache_SpecifyDuration">
+            <summary>
+              Looks up a localized string similar to If the &apos;{0}&apos; property is not set to true, &apos;{1}&apos; property must be specified..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.SerializableError_DefaultError">
+            <summary>
+              Looks up a localized string similar to The input was not valid..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.TextInputFormatter_SupportedEncodingsMustNotBeEmpty">
+            <summary>
+              Looks up a localized string similar to The list of &apos;{0}&apos; must not be empty. Add at least one supported encoding..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.TextOutputFormatter_SupportedEncodingsMustNotBeEmpty">
+            <summary>
+              Looks up a localized string similar to The list of &apos;{0}&apos; must not be empty. Add at least one supported encoding..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.TextOutputFormatter_WriteResponseBodyAsyncNotSupported">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; is not supported by &apos;{1}&apos;. Use &apos;{2}&apos; instead..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.TypeMethodMustReturnNotNullValue">
+            <summary>
+              Looks up a localized string similar to The &apos;{0}&apos; method of type &apos;{1}&apos; cannot return a null value..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.TypeMustDeriveFromType">
+            <summary>
+              Looks up a localized string similar to The type &apos;{0}&apos; must derive from &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.UnableToFindServices">
+            <summary>
+              Looks up a localized string similar to Unable to find the required services. Please add all the required services by calling &apos;{0}.{1}&apos; inside the call to &apos;{2}&apos; in the application startup code..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.UnsupportedContentType">
+            <summary>
+              Looks up a localized string similar to Unsupported content type &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.UrlHelper_RelativePagePathIsNotSupported">
+            <summary>
+              Looks up a localized string similar to The relative page path &apos;{0}&apos; can only be used while executing a Razor Page. Specify a root relative path with a leading &apos;/&apos; to generate a URL outside of a Razor Page..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.UrlNotLocal">
+            <summary>
+              Looks up a localized string similar to The supplied URL is not local. A URL with an absolute path is considered local if it does not have a host/authority part. URLs using virtual paths (&apos;~/&apos;) are also local..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ValueInterfaceAbstractOrOpenGenericTypesCannotBeActivated">
+            <summary>
+              Looks up a localized string similar to The type &apos;{0}&apos; cannot be activated by &apos;{1}&apos; because it is either a value type, an interface, an abstract class or an open generic type..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.ValueProviderResult_NoConverterExists">
+            <summary>
+              Looks up a localized string similar to The parameter conversion from type &apos;{0}&apos; to type &apos;{1}&apos; failed because no type converter can convert between these types..
+            </summary>
+        </member>
+        <member name="P:Ipf.Core.Security.Authorization.Properties.Resources.VaryByQueryKeys_Requires_ResponseCachingMiddleware">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; requires the response cache middleware..
+            </summary>
+        </member>
+    </members>
+</doc>

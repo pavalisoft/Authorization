@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{99767B63-5250-4DC3-BF73-1AADAACBA763}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3DC5E1E4-EEBF-4353-A1A3-4D3C9B37C017}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{7BEBDB07-8F01-4D98-8E51-A08D97C7B901}"
+	ProjectSection(SolutionItems) = preProject
+		Doxyfile = Doxyfile
+		LICENSE = LICENSE
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pavalisoft.Authorization", "Source\Pavalisoft.Authorization\Pavalisoft.Authorization.csproj", "{92D99BE0-39F4-463F-A979-C3531F4841E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{6E58A62F-CAB7-4EF5-8F26-0FB98570DD7F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92D99BE0-39F4-463F-A979-C3531F4841E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92D99BE0-39F4-463F-A979-C3531F4841E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92D99BE0-39F4-463F-A979-C3531F4841E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92D99BE0-39F4-463F-A979-C3531F4841E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{92D99BE0-39F4-463F-A979-C3531F4841E6} = {99767B63-5250-4DC3-BF73-1AADAACBA763}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A87AADA5-FBF6-41E3-963A-8676DAD651EE}
+	EndGlobalSection
+EndGlobal
